@@ -28,7 +28,7 @@ class Crawler():
                 continue
             bookTitle.append(j.find('td', class_= "detail").find("div", class_="title").find("strong").text)
             bookID.append(j.find("td", class_= "detail").find("div", class_="title").find("a")['href'])
-            bookPrice.append(j.find("td", class_= "price").find("div", class_ = "sell_price").find("strong").text.replace(',',"")) 
+            bookPrice.append(j.find("td", class_= "price").find("div", class_ = "sell_price").find("strong").text) 
             
         self.write_CSV(bookTitle, bookPrice, bookID)
 

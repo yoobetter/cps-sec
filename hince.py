@@ -16,11 +16,11 @@ class Scraper():
         soup = BeautifulSoup(html, "html.parser")
         return soup
 
-    def getPages(self, soup): 
-        pages = soup.find("div", class_ = "xans-element- xans-product xans-product-normalpaging pagination").find("li")
-        return len(pages)
+#    def getPages(self, soup): 
+#        pages = soup.find("div", class_ = "xans-element- xans-product xans-product-normalpaging pagination").find("li")
+#        return len(pages)
 
-    def getCards(self, soup, cnt): #페이지 내에서 내가 원하는 특정 정보만 수집
+    def getCards(self, soup, cnt): 
         lipCards = soup.find_all("div", class_ = "product-info")
         lipID = []
         lipTitle = []
@@ -43,15 +43,15 @@ class Scraper():
         file.close
 
     def scrap(self): 
-        soupPage = self.getHTML(0)
-        pages = self.getPages(soupPage)
+        # soupPage = self.getHTML(0)
+        # pages = self.getPages(soupPage)
 
         file = open("hince.csv", "w",newline='',encoding= 'utf-8-sig') 
         wr = csv.writer(file)
         wr.writerow(["No.", "Title", "Price", "Link"])
         file.close
               
-        for i in range(pages):
+        for i in range(2):
             soupCard = self.getHTML(i)
             self.getCards(soupCard, i)
             print(i+1, "번째 페이지 Done")
