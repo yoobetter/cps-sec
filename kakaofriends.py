@@ -11,10 +11,9 @@ try:
     driver.get("https://store.kakaofriends.com/kr/index?tab=home")
     time.sleep(1)
     
-    searchindex = "죠르디" #검색어
+    searchindex = "죠르디" 
     element = driver.find_element_by_xpath('//*[@id="innerHead"]/div/form/div/input')
-    element.send_keys(searchindex) #검색어 입력
-    #driver.find_element_by_class_name("search__SearchButton-sc-1f4d0mm-3 fbRpLw").click() #검색창이 파이썬 적고 클릭까지
+    element.send_keys(searchindex) 
     driver.find_element_by_xpath('//*[@id="innerHead"]/div/form/div/button').click()
     time.sleep(5)
     html = driver.page_source
